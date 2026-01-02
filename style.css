@@ -1,21 +1,35 @@
+/* =========================
+   GLOBAL STYLES
+========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 body {
   background: #fdeaf3;
-  color: #333;
+  color: #111;
+  line-height: 1.6;
+  webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-/* NAV */
+html {
+  scroll-behavior: smooth;
+}
+
+/* =========================
+   NAVBAR
+========================= */
 .navbar {
   display: flex;
   justify-content: space-between;
-  padding: 20px 60px;
-  background: #fff;
+  align-items: center;
+  padding: 20px 8%;
+  background: #fdeaf3;
 }
 
 .navbar a {
@@ -25,78 +39,346 @@ body {
   font-weight: 500;
 }
 
-/* HERO */
+.navbar a:hover {
+  color: #ff5fa2;
+}
+
+.navbar a {
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.navbar a.active {
+  color: #e91e63; /* your pink */
+  font-weight: 600;
+}
+
+.navbar a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background-color: #e91e63;
+  border-radius: 2px;
+}
+
+
+/* =========================
+   HERO SECTION
+========================= */
 .hero {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 80px;
+  justify-content: space-between;
+  padding: 120px 10%;
+  gap: 12px;
+}
+
+.hero-content {
+  max-width: 900px;
+}
+
+.hero h1 {
+  font-family: 'Merriweather', serif;
+  font-size: 50px;
+  font-weight: 500;
+  color: #000;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.hire-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+
+  width: 242px;
+  height: 64px; /* smaller + cleaner */
+  padding: 0 24px;
+
+  background: #e0115f;
+  border-radius: 10px;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition: all 0.3s ease;
+
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 8;
 }
 
 .hero img {
   width: 280px;
+}
+
+
+.hero-description {
+  max-width: 720px;
+  margin: 20px auto;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  text-align: center;
+  color: #000;
+  margin-bottom: 28px;
+}
+
+
+.hero .subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+
+.hire-btn svg {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+
+.hire-btn:hover {
+  background: #c80f55;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(224, 17, 95, 0.35);
+}
+
+.subtitle {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  gap: 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 16px 0;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.subtitle::before,
+.subtitle::after {
+  content: "";
+  width: 500px; 
+  height: 1px;
+  background-color: #999;
+}
+
+.profile-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin-right: 40px; 
+}
+
+/* PROFILE IMAGE */
+.profile-image {
+  width: 260px;
+  height: 260px;
   border-radius: 50%;
+  border: 6px solid #ff5fa2;
+  overflow: hidden;
+
 }
 
-.hero .btn {
-  display: inline-block;
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* SOCIAL ICONS ROW */
+.social-icons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
   margin-top: 20px;
-  background: #ff5fa2;
-  color: #fff;
-  padding: 12px 20px;
-  border-radius: 8px;
-  text-decoration: none;
 }
 
-/* SECTIONS */
+.social-icons img {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-icons img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
 section {
-  padding: 80px;
+  padding: 80px 8%;
   text-align: center;
 }
 
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+/* =========================
+   GRIDS
+========================= */
 .skills-grid,
 .service-cards,
 .portfolio-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
-  margin-top: 30px;
 }
 
 .skills-grid div,
 .card {
   background: #fff;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
 }
 
-form {
-  max-width: 400px;
+.skills-grid div:hover,
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.about {
+  padding: 0px 0%;
+}
+
+.about h2 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 0px;
+}
+
+.about p {
+  margin-top: 0px; /* removes extra space above text */
+}
+
+.about .subtitle {
+  text-align: center;
+  color: #333;
+  margin-bottom: 60px;
+}
+
+/* Layout */
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 150px;
+}
+
+/* Image */
+.about-image img {
+  width: 300px;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+
+/* Text */
+.about-text {
+  max-width: 700px;
+  font-size: 18px;
+  line-height: 1.6;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  letter-spacing: 5%;
+  text-align: center;
+  color: #222; 
+}
+
+
+
+/* =========================
+   CONTACT
+========================= */
+.contact form {
+  max-width: 420px;
   margin: auto;
 }
 
-input, textarea {
+.contact input,
+.contact textarea {
   width: 100%;
-  padding: 12px;
+  padding: 14px;
   margin-bottom: 15px;
-  border-radius: 6px;
+  border-radius: 8px;
   border: 1px solid #ccc;
 }
 
-button {
+.contact button {
+  width: 100%;
+  padding: 14px;
   background: #000;
   color: #fff;
   border: none;
-  padding: 12px;
-  width: 100%;
   border-radius: 6px;
   cursor: pointer;
 }
 
+/* =========================
+   FOOTER
+========================= */
 footer {
+  background: #111;
+  color: white;
   text-align: center;
   padding: 20px;
-  background: #222;
-  color: white;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero img {
+    width: 200px;
+  }
+
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+ .hero-description {
+    font-size: 18px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image img {
+    width: 260px;
+  }
 }

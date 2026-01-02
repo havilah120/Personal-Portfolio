@@ -4,12 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Olayiwola Oluwawemimo | Portfolio</title>
+
   <link rel="stylesheet" href="style.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
 </head>
 <body>
 
 <!-- NAVBAR -->
 <header class="navbar">
+  <h2 class="logo">My Personal Portfolio</h2>
   <nav>
     <a href="#home">Home</a>
     <a href="#about">About</a>
@@ -17,34 +23,87 @@
     <a href="#services">Services</a>
     <a href="#portfolio">Portfolio</a>
     <a href="#contact">Contact</a>
+    
   </nav>
 </header>
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-text">
+  <div class="hero-content">
     <h1>Olayiwola Oluwawemimo Havilah</h1>
-    <p class="role">UI/UX Designer</p>
-    <p class="intro">
-      I design user-centered digital experiences that combine creativity,
-      functionality, and clarity.
+
+    <p class="subtitle">UI/UX Designer</p>
+
+    <p class="hero-description">
+      I am a UI/UX designer. I manage a business that creates visually appealing
+      digital experiences to engage and solve real-world problems for consumers.
+      Every one of my designs aims to mix utility and visual appeal, making
+      interactivity simple while also promoting growth in your organization.
     </p>
-    <a href="#contact" class="btn">Hire Me</a>
+    
+    <a href="#contact" class="hire-btn">
+    <span>Hire me</span>
+    <svg
+      width="54"
+      height="55"
+      viewBox="0 0 54 55"
+    >
+    <path
+      d="M48.4261 28.9771C49.2863 30.6403 49.8163 32.46 49.9858 34.332C50.1553 36.204 49.9609 38.0917 49.4137 39.8872C48.8665 41.6827 47.9774 43.3507 46.797 44.796C45.6166 46.2413 44.1681 47.4355 42.5344 48.3103L38.0222 50.7317L36.9127 51.3261C35.8933 51.8724 34.7643 52.1729 33.6129 52.2042C32.4614 52.2356 31.3183 51.9971 30.2717 51.5071L12.6503 43.8393L14.3097 38.8253L24.7893 40.8871L19.3621 30.3834L10.6248 13.474L14.8812 11.1933L23.6186 28.1076L25.7211 26.9813L21.8692 19.5213L26.1233 17.2419L29.975 24.7018L32.0776 23.5754L29.1033 17.8179L33.3598 15.5371L36.3341 21.2947L38.4376 20.1586L36.3964 16.1962L40.6516 13.9217L42.6929 17.8839L48.4249 28.9807Z"
+      fill="white"
+    />
+    </svg>
+  </a>
   </div>
 
-  <div class="hero-img">
-    <img src="images/profile.jpg" alt="Profile Image">
+ <div class="profile-wrapper">
+  <div class="profile-image">
+    <img src="professional picture.jpeg" alt="Profile Image" />
   </div>
+
+ <div class="social-icons">
+  <a href="https://www.instagram.com/wemimo_olayiwola" target="_blank" rel="noopener noreferrer">
+   <img src="instagram-iconn.png" alt="Instagram" />
+  </a>
+
+  <a href="https://www.linkedin.com/in/oluwawemimo-olayiwola-07934828a" target="_blank" rel="noopener noreferrer">
+    <img src="linkedin-logo.png" alt="LinkedIn">
+  </a>
+
+
+  <a href="https://www.youtube.com/@WemimoOlayiwola" target="_blank" rel="noopener noreferrer">
+    <img src="youtube.png" alt="YouTube" />
+  </a>
+</div>
+
+
+</div>
 </section>
+
 
 <!-- ABOUT -->
 <section class="about" id="about">
   <h2>About Me</h2>
-  <p>
-    I am a UI/UX designer focused on creating intuitive and visually
-    appealing digital products. I enjoy transforming ideas into
-    user-friendly solutions through research, design, and creativity.
-  </p>
+  <p class="subtitle">My Introduction</p>
+
+  <div class="about-container">
+    <!-- Image -->
+    <div class="about-image">
+      <img src="selfie.jpeg" alt="Profile Image">
+    </div>
+
+    <!-- Text -->
+    <div class="about-text">
+      <p>
+        I am a UI/UX designer passionate about creating meaningful digital experiences that feel
+        simple, intuitive, and visually engaging. I enjoy turning ideas into clean, functional
+         designs that solve real problems while keeping the user at the center of every decision.
+        <br><br>
+        Design, to me, is about clarity, connection, and creating experiences that feel effortless and enjoyable to use.
+         I am always learning, refining my craft, and exploring better ways to bring ideas to life through thoughtful design.
+      </p>
+    </div>
+  </div>
 </section>
 
 <!-- SKILLS -->
@@ -96,5 +155,35 @@
   <p>© 2026 Olayiwola Oluwawemimo. All rights reserved.</p>
 </footer>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".navbar a");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 150;
+      const sectionHeight = section.offsetHeight;
+
+      if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active");
+      }
+    });
+  });
+});
+</script>
+
+
 </body>
 </html>
+
+
