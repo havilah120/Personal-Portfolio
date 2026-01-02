@@ -13,21 +13,18 @@
 </head>
 <body>
 
-<!-- NAVBAR -->
 <header class="navbar">
   <h2 class="logo">My Personal Portfolio</h2>
   <nav>
     <a href="#home">Home</a>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
-    <a href="#services">Services</a>
     <a href="#portfolio">Portfolio</a>
     <a href="#contact">Contact</a>
     
   </nav>
 </header>
 
-<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-content">
     <h1>Olayiwola Oluwawemimo Havilah</h1>
@@ -81,18 +78,15 @@
 </section>
 
 
-<!-- ABOUT -->
 <section class="about" id="about">
   <h2>About Me</h2>
   <p class="subtitle">My Introduction</p>
 
   <div class="about-container">
-    <!-- Image -->
     <div class="about-image">
       <img src="selfie.jpeg" alt="Profile Image">
     </div>
 
-    <!-- Text -->
     <div class="about-text">
       <p>
         I am a UI/UX designer passionate about creating meaningful digital experiences that feel
@@ -106,50 +100,90 @@
   </div>
 </section>
 
-<!-- SKILLS -->
 <section class="skills" id="skills">
   <h2>Skills</h2>
   <div class="skills-grid">
-    <div>UI/UX Design</div>
-    <div>Figma</div>
-    <div>Adobe XD</div>
-    <div>HTML</div>
-    <div>CSS</div>
-    <div>Responsive Design</div>
+    <div class="skill-card">
+    <h3>UI/UX Design</h3>
+    <p>Wireframing, prototyping & user-centered design</p>
+    </div>
+    <div class="skill-card">
+    <h3>Figma</h3>
+    <p>Design systems, wireframes, and prototypes</p>
+    </div>
+    <div class="skill-card">
+    <h3>User Research</h3>
+    <p>User interviews, usability testing, and research analysis</p>
+    </div>
+    <div class="skill-card">
+    <h3>HTML</h3>
+    <p>Semantic structure, accessibility, and clean markup</p>
+    </div>
+    <div class="skill-card">
+    <h3>CSS</h3>
+    <p>Responsive layouts, styling, and modern UI effects</p>
+    </div>
+    <div class="skill-card">
+    <h3>Java</h3>
+    <p>Object-oriented programming and application logic</p>
+    </div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section class="services">
-  <h2>Services</h2>
-  <div class="service-cards">
-    <div class="card">UI/UX Design</div>
-    <div class="card">Digital Design</div>
-    <div class="card">Graphic Design</div>
-  </div>
-</section>
-
-<!-- PORTFOLIO -->
 <section class="portfolio" id="portfolio">
   <h2>Portfolio</h2>
-  <div class="portfolio-cards">
-    <div class="card">Behance</div>
-    <div class="card">LinkedIn</div>
-    <div class="card">Read.cv</div>
+
+  <div class="portfolio-grid">
+
+    <div class="portfolio-card">
+      <img src="nh.png" alt="New Horizons Website">
+      <h3>New Horizons Website Redesign</h3>
+      <p>
+        A redesigned website for New Horizons, focused on improving usability,
+        visual clarity, and overall user experience. The project involved
+        restructuring layouts and enhancing accessibility.
+      </p>
+      <a href="project-new-horizons.html" class="btn">View Project</a>
+    </div>
+
+    <div class="portfolio-card">
+      <img src="campus cart.png" alt="CampusCats App">
+      <h3>CampusCart – Student Marketplace</h3>
+      <p>
+        A campus-based e-commerce platform designed to help students buy and sell
+        items easily. Focused on simplicity, usability, and smooth navigation.
+      </p>
+      <a href="project-campuscart.html" class="btn">View Project</a>
+    </div>
+
+    <div class="portfolio-card">
+      <img src="cafeteria_management_system image.png" alt="Cafeteria Management System">
+      <h3>Cafeteria Management System</h3>
+      <p>
+        A web-based system built to manage food orders, users, and transactions
+        efficiently. Designed as a functional academic project with real-world use cases.
+      </p>
+      <a href="project-cafeteria.html" class="btn">View Project</a>
+    </div>
+
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
+<section class="contact-section" id="contact">
   <h2>Get in Touch</h2>
+  <p class="contact-subtitle">
+    Have a project in mind or want to work together?  
+    I would love to hear from you.
+  </p>
 
-  <form>
-    <input type="text" placeholder="Your Name" required>
-    <input type="email" placeholder="Your Email" required>
-    <textarea placeholder="Your Message"></textarea>
+  <form class="contact-form">
+    <input type="text" placeholder="Your Name" required />
+    <input type="email" placeholder="Your Email" required />
+    <textarea placeholder="Your Message" rows="5" required></textarea>
     <button type="submit">Send Message</button>
   </form>
 </section>
+
 
 <footer>
   <p>© 2026 Olayiwola Oluwawemimo. All rights reserved.</p>
@@ -157,6 +191,32 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector("form");
+
+  if (!form) return;
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); 
+
+    let successMessage = document.createElement("p");
+    successMessage.textContent = "Thank you! Your message has been sent successfully.";
+    successMessage.style.color = "#28a745";
+    successMessage.style.marginTop = "15px";
+    successMessage.style.fontWeight = "500";
+
+    if (!document.querySelector(".success-msg")) {
+      successMessage.classList.add("success-msg");
+      form.appendChild(successMessage);
+    }
+
+    form.reset();
+
+    setTimeout(() => {
+      successMessage.remove();
+    }, 5000);
+  });
+});
+
   const sections = document.querySelectorAll("section");
   const navLinks = document.querySelectorAll(".navbar a");
 
@@ -179,7 +239,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-});
 </script>
 
 

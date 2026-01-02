@@ -9,10 +9,8 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
   });
 });
 
-// Optional: Button hover animation (subtle)
-const buttons = document.querySelectorAll("button");
-
-buttons.forEach(button => {
+// Button hover animation
+document.querySelectorAll("button").forEach(button => {
   button.addEventListener("mouseenter", () => {
     button.style.transform = "scale(1.05)";
   });
@@ -22,17 +20,36 @@ buttons.forEach(button => {
   });
 });
 
-// Contact form feedback (no backend)
+// CONTACT FORM HANDLING
 const form = document.querySelector("form");
+const successMessage = document.createElement("p");
 
 if (form) {
+  successMessage.textContent = "Thank you! Your message has been sent successfully.";
+  successMessage.style.color = "#28a745";
+  successMessage.style.marginTop = "15px";
+  successMessage.style.fontWeight = "500";
+  successMessage.style.display = "none";
+
+  form.appendChild(successMessage);
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    alert("Thank you for reaching out! I’ll get back to you soon.");
+
+    // Show success message
+    successMessage.style.display = "block";
+
+    // Clear form fields
     form.reset();
+
+    // Hide message after 5 seconds
+    setTimeout(() => {
+      successMessage.style.display = "none";
+    }, 5000);
   });
 }
 
+// Active nav link on scroll
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".navbar a");
 
@@ -41,7 +58,7 @@ window.addEventListener("scroll", () => {
 
   sections.forEach(section => {
     const sectionTop = section.offsetTop - 150;
-    const sectionHeight = section.clientHeight;
+    const sectionHeight = section.offsetHeight;
 
     if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
       current = section.getAttribute("id");
@@ -55,5 +72,3 @@ window.addEventListener("scroll", () => {
     }
   });
 });
-
-

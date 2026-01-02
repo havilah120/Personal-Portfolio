@@ -1,0 +1,131 @@
+/* ===== GLOBAL ===== */
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background-color: #fde9f1; /* soft pink background */
+  color: #222;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+
+/* ===== PROJECT HEADER ===== */
+.project-header {
+  text-align: center;
+  padding: 80px 20px 40px;
+}
+
+.project-header h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.project-subtitle {
+  font-size: 18px;
+  color: #666;
+}
+
+/* ===== SECTIONS ===== */
+.project-section {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.project-section h2 {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.project-section p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* ===== IMAGE GALLERY ===== */
+.project-gallery {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: translateY(-6px);
+}
+
+/* ===== TOOLS SECTION ===== */
+.tools-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.tools-list li {
+  background: #ffffff;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ===== CTA BUTTON ===== */
+.project-cta {
+  text-align: center;
+  margin: 70px 0;
+}
+
+.btn-primary {
+  background: #e0115f;
+  color: white;
+  padding: 14px 36px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #c40f52;
+  transform: translateY(-2px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .project-header h1 {
+    font-size: 32px;
+  }
+
+  .project-section h2 {
+    font-size: 24px;
+  }
+
+  .project-section p {
+    font-size: 16px;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+}
